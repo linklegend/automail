@@ -2,7 +2,7 @@ package automail;
 
 public class Building {
 	
-	/*HIIHIHIHIHIH*/
+	
     /** The number of floors in the building **/
     public static final int FLOORS = 9;
     
