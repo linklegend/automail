@@ -47,7 +47,7 @@ public class Simulation {
 	            }
 		}
         MAIL_DELIVERED = new ArrayList<MailItem>();
-        MAIL_TO_CREATE = Integer.parseInt(Simulation.automailProperties.getProperty("Last_Delivery_Time"));
+        MAIL_TO_CREATE = Integer.parseInt(Simulation.automailProperties.getProperty("Mail_to_Create"));
         /** Used to see whether a seed is initialized or not */
         HashMap<Boolean, Integer> seedMap = new HashMap<>();
         

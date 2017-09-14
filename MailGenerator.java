@@ -12,7 +12,7 @@ public class MailGenerator {
     public final int MAIL_TO_CREATE;
 
     private int mailCreated;
-
+    private static int VARIATION = Integer.parseInt(Simulation.automailProperties.getProperty("Mail_Count_Percentage_Variation"));
     private final Random random;
     /** This seed is used to make the behaviour deterministic */
     
@@ -36,7 +36,7 @@ public class MailGenerator {
         }
         // Vary arriving mail by +/-20%
         MAIL_TO_CREATE = mailToCreate*4/5 + random.nextInt(mailToCreate*2/5);
-        // System.out.println("Num Mail Items: "+MAIL_TO_CREATE);
+        System.out.println("Num Mail Items: "+MAIL_TO_CREATE);
         mailCreated = 0;
         complete = false;
         allMail = new HashMap<Integer,ArrayList<MailItem>>();
