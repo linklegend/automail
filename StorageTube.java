@@ -10,7 +10,7 @@ import java.util.Stack;
  */
 public class StorageTube {
 
-    public final int MAXIMUM_CAPACITY = 4;
+    public static int MAXIMUM_CAPACITY = 4;
     public Stack<MailItem> tube;
 
     /**

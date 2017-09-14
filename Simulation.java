@@ -17,18 +17,14 @@ import java.util.Properties;
 public class Simulation {
 
     /** Constant for the mail generator */
-    private static final int MAIL_TO_CREATE = 60;
-    
+    private static int MAIL_TO_CREATE;
+    public static Properties automailProperties = new Properties();
 
     private static ArrayList<MailItem> MAIL_DELIVERED;
     private static double total_score = 0;
 
     public static void main(String[] args){
-   	// Should probably be using properties here
-    	Properties automailProperties = new Properties();
 		// Defaults
-		automailProperties.setProperty("Name_of_Property", "20");  // Property value may need to be converted from a string to the appropriate type
-
 		FileReader inStream = null;
 		
 		try {
@@ -50,11 +46,8 @@ public class Simulation {
 					}
 	            }
 		}
-		
-		int i = Integer.parseInt(automailProperties.getProperty("Name_of_Property"));
-
         MAIL_DELIVERED = new ArrayList<MailItem>();
-                
+        MAIL_TO_CREATE = Integer.parseInt(Simulation.automailProperties.getProperty("Last_Delivery_Time"));
         /** Used to see whether a seed is initialized or not */
         HashMap<Boolean, Integer> seedMap = new HashMap<>();
         
@@ -110,7 +103,7 @@ public class Simulation {
     
     private static double calculateDeliveryScore(MailItem deliveryItem) {
     	// Penalty for longer delivery times
-    	final double penalty = 1.1;
+    	final double penalty = Double.parseDouble(Simulation.automailProperties.getProperty("Delivery_Penalty"));
     	double priority_weight = 0;
         // Take (delivery time - arrivalTime)**penalty * (1+sqrt(priority_weight))
     	if(deliveryItem instanceof PriorityMailItem){
