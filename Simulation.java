@@ -4,7 +4,9 @@ import exceptions.ExcessiveDeliveryException;
 import exceptions.MailAlreadyDeliveredException;
 import strategies.Automail;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
@@ -22,7 +24,7 @@ public class Simulation {
     private static double total_score = 0;
 
     public static void main(String[] args){
-/*    	// Should probably be using properties here
+   	// Should probably be using properties here
     	Properties automailProperties = new Properties();
 		// Defaults
 		automailProperties.setProperty("Name_of_Property", "20");  // Property value may need to be converted from a string to the appropriate type
@@ -32,14 +34,25 @@ public class Simulation {
 		try {
 			inStream = new FileReader("automail.properties");
 			automailProperties.load(inStream);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} finally {
 			 if (inStream != null) {
-	                inStream.close();
+	                try {
+						inStream.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 	            }
 		}
 		
 		int i = Integer.parseInt(automailProperties.getProperty("Name_of_Property"));
-*/
+
         MAIL_DELIVERED = new ArrayList<MailItem>();
                 
         /** Used to see whether a seed is initialized or not */
