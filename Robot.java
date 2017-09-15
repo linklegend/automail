@@ -31,11 +31,11 @@ public class Robot {
      * @param delivery governs the final delivery
      * @param mailPool is the source of mail items
      */
-    public Robot(IRobotBehaviour behaviour, IMailDelivery delivery, IMailPool mailPool){
+    public Robot(IRobotBehaviour behaviour, IMailDelivery delivery, IMailPool mailPool, int carryingCapacity){
         // current_state = RobotState.WAITING;
     	current_state = RobotState.RETURNING;
         current_floor = Building.MAILROOM_LOCATION;
-        tube = new StorageTube();
+        tube = new StorageTube(carryingCapacity);
         this.behaviour = behaviour;
         this.delivery = delivery;
         this.mailPool = mailPool;
@@ -80,7 +80,7 @@ public class Robot {
                     delivery.deliver(deliveryItem);
                     tube.pop();
                     deliveryCounter++;
-                    if(deliveryCounter > 4){
+                    if(deliveryCounter > tube.MAXIMUM_CAPACITY){
                     	throw new ExcessiveDeliveryException();
                     }
                     /** Check if want to return or if there are more items in the tube */

@@ -8,8 +8,8 @@ import strategies.IRobotBehaviour;
 
 public class CommsRobot extends Robot implements Observer {
 
-	public CommsRobot(IRobotBehaviour behaviour, IMailDelivery delivery, IMailPool mailPool, Observable commsStation) {
-		super(behaviour, delivery, mailPool);
+	public CommsRobot(IRobotBehaviour behaviour, IMailDelivery delivery, IMailPool mailPool, int carryingCapacity, Observable commsStation) {
+		super(behaviour, delivery, mailPool, carryingCapacity);
 		commsStation.addObserver(this);
 		}
 	
