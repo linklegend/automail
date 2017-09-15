@@ -90,14 +90,6 @@ public class MailGenerator {
     }
 
     /**
-     * Returns a random element from an array
-     * @param array of objects
-     */
-    private Object getRandom(Object[] array){
-        return array[random.nextInt(array.length)];
-    }
-
-    /**
      * This class initializes all mail and sets their corresponding values,
      */
     public void generateAllMail(){
