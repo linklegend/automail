@@ -1,6 +1,5 @@
 package automail;
 
-import java.util.Comparator;
 import java.util.UUID;
 
 /**
@@ -59,13 +58,4 @@ public class MailItem {
         return ARRIVAL_TIME;
     }
 
-	/**
-	 * @return a Comparator for arrival times
-	 */
-	public static Comparator<MailItem> arrivalComparator
-						= new Comparator<MailItem>() {
-		public int compare(MailItem m1, MailItem m2) {
-			return Integer.compare(m1.ARRIVAL_TIME, m2.ARRIVAL_TIME);
-		}		
-	};
 }

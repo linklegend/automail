@@ -1,7 +1,5 @@
 package automail;
 
-import java.util.Comparator;
-
 public class PriorityMailItem extends MailItem{
 	
 	/** The priority of the mail item from 1 low to 100 high */
@@ -26,14 +24,5 @@ public class PriorityMailItem extends MailItem{
                "| Priority Level: "+ PRIORITY_LEVEL
                ;
    }
-   
-	/**
-	 * @return a Comparator for priority levels
-	 */
-	public static Comparator<PriorityMailItem> priorityComparator
-						= new Comparator<PriorityMailItem>() {
-		public int compare(PriorityMailItem m1, PriorityMailItem m2) {
-			return Integer.compare(m1.PRIORITY_LEVEL, m2.PRIORITY_LEVEL);
-		}		
-	};
+
 }
